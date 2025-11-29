@@ -400,14 +400,21 @@
             font-size: 1rem;
         }
         
+        /* 移动端表格优化 */
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(67, 97, 238, 0.1);
+        }
+        
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
             background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            min-width: 800px; /* 确保表格在移动端有足够宽度 */
         }
         
         th, td {
@@ -420,6 +427,8 @@
             background-color: #f0f7ff;
             color: var(--tech-blue);
             font-weight: 600;
+            position: sticky;
+            left: 0;
         }
         
         tr:hover {
@@ -651,6 +660,7 @@
             color: white;
         }
         
+        /* 移动端特定优化 */
         @media (max-width: 768px) {
             header h1 {
                 font-size: 2.2rem;
@@ -675,6 +685,75 @@
             
             .header-stat h3 {
                 font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            /* 移动端表格进一步优化 */
+            .table-responsive {
+                margin: 15px -10px;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+            
+            table {
+                min-width: 900px; /* 确保表格在移动端有足够宽度 */
+            }
+            
+            th, td {
+                padding: 12px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .chart-container {
+                height: 280px;
+                padding: 10px;
+            }
+            
+            .highlight {
+                padding: 20px;
+            }
+            
+            .egatee-highlight {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 60px 0 40px;
+            }
+            
+            header h1 {
+                font-size: 1.8rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .header-stat {
+                min-width: 120px;
+                padding: 12px 15px;
+            }
+            
+            .header-stat h3 {
+                font-size: 1.5rem;
+            }
+            
+            .card-title {
+                font-size: 1.2rem;
+            }
+            
+            .data-item h3 {
+                font-size: 1.8rem;
+            }
+            
+            .egatee-stat h4 {
+                font-size: 1.7rem;
             }
         }
     </style>
@@ -792,54 +871,56 @@
             </div>
             
             <h3 style="margin-top: 30px; color: var(--tech-blue);">细分市场数据 (2024年)</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>产品类别</th>
-                        <th>市场规模 (亿美元)</th>
-                        <th>年增长率</th>
-                        <th>主要市场</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>咖啡机</td>
-                        <td>4.2</td>
-                        <td>15% <span class="growth-badge">高增长</span></td>
-                        <td>尼日利亚、南非、肯尼亚</td>
-                    </tr>
-                    <tr>
-                        <td>制冰机</td>
-                        <td>3.8</td>
-                        <td>18% <span class="growth-badge">高增长</span></td>
-                        <td>尼日利亚、埃及、加纳</td>
-                    </tr>
-                    <tr>
-                        <td>和面机</td>
-                        <td>2.5</td>
-                        <td>12%</td>
-                        <td>埃及、摩洛哥、阿尔及利亚</td>
-                    </tr>
-                    <tr>
-                        <td>面包机</td>
-                        <td>3.1</td>
-                        <td>10%</td>
-                        <td>南非、尼日利亚、肯尼亚</td>
-                    </tr>
-                    <tr>
-                        <td>户外音响</td>
-                        <td>6.8</td>
-                        <td>22% <span class="growth-badge">爆发增长</span></td>
-                        <td>尼日利亚、南非、加纳</td>
-                    </tr>
-                    <tr>
-                        <td>专业音响</td>
-                        <td>7.6</td>
-                        <td>20% <span class="growth-badge">高增长</span></td>
-                        <td>南非、尼日利亚、埃及</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>产品类别</th>
+                            <th>市场规模 (亿美元)</th>
+                            <th>年增长率</th>
+                            <th>主要市场</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>咖啡机</td>
+                            <td>4.2</td>
+                            <td>15% <span class="growth-badge">高增长</span></td>
+                            <td>尼日利亚、南非、肯尼亚</td>
+                        </tr>
+                        <tr>
+                            <td>制冰机</td>
+                            <td>3.8</td>
+                            <td>18% <span class="growth-badge">高增长</span></td>
+                            <td>尼日利亚、埃及、加纳</td>
+                        </tr>
+                        <tr>
+                            <td>和面机</td>
+                            <td>2.5</td>
+                            <td>12%</td>
+                            <td>埃及、摩洛哥、阿尔及利亚</td>
+                        </tr>
+                        <tr>
+                            <td>面包机</td>
+                            <td>3.1</td>
+                            <td>10%</td>
+                            <td>南非、尼日利亚、肯尼亚</td>
+                        </tr>
+                        <tr>
+                            <td>户外音响</td>
+                            <td>6.8</td>
+                            <td>22% <span class="growth-badge">爆发增长</span></td>
+                            <td>尼日利亚、南非、加纳</td>
+                        </tr>
+                        <tr>
+                            <td>专业音响</td>
+                            <td>7.6</td>
+                            <td>20% <span class="growth-badge">高增长</span></td>
+                            <td>南非、尼日利亚、埃及</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             
             <div class="data-grid">
                 <div class="data-item">
@@ -873,61 +954,63 @@
             <div class="chart-container">
                 <canvas id="competitorsChart"></canvas>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>竞争对手</th>
-                        <th>国家/地区</th>
-                        <th>市场份额</th>
-                        <th>主要产品</th>
-                        <th>优势</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>德龙(De'Longhi)</td>
-                        <td>意大利</td>
-                        <td>18%</td>
-                        <td>咖啡机、面包机</td>
-                        <td>品牌知名度高，产品质量优</td>
-                    </tr>
-                    <tr>
-                        <td>曼富图(Manfrotto)</td>
-                        <td>意大利</td>
-                        <td>12%</td>
-                        <td>专业音响设备</td>
-                        <td>技术领先，专业性强</td>
-                    </tr>
-                    <tr>
-                        <td>松下(Panasonic)</td>
-                        <td>日本</td>
-                        <td>15%</td>
-                        <td>全系列家电</td>
-                        <td>产品线完整，售后服务好</td>
-                    </tr>
-                    <tr>
-                        <td>中国美的(Midea)</td>
-                        <td>中国</td>
-                        <td>10%</td>
-                        <td>制冰机、和面机</td>
-                        <td>价格优势，交货期短</td>
-                    </tr>
-                    <tr>
-                        <td>本地制造商</td>
-                        <td>非洲各国</td>
-                        <td>25%</td>
-                        <td>基础家电设备</td>
-                        <td>了解本地需求，关税优势</td>
-                    </tr>
-                    <tr>
-                        <td>其他国际品牌</td>
-                        <td>多国</td>
-                        <td>20%</td>
-                        <td>各类家电音响</td>
-                        <td>特定领域专业性强</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>竞争对手</th>
+                            <th>国家/地区</th>
+                            <th>市场份额</th>
+                            <th>主要产品</th>
+                            <th>优势</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>德龙(De'Longhi)</td>
+                            <td>意大利</td>
+                            <td>18%</td>
+                            <td>咖啡机、面包机</td>
+                            <td>品牌知名度高，产品质量优</td>
+                        </tr>
+                        <tr>
+                            <td>曼富图(Manfrotto)</td>
+                            <td>意大利</td>
+                            <td>12%</td>
+                            <td>专业音响设备</td>
+                            <td>技术领先，专业性强</td>
+                        </tr>
+                        <tr>
+                            <td>松下(Panasonic)</td>
+                            <td>日本</td>
+                            <td>15%</td>
+                            <td>全系列家电</td>
+                            <td>产品线完整，售后服务好</td>
+                        </tr>
+                        <tr>
+                            <td>中国美的(Midea)</td>
+                            <td>中国</td>
+                            <td>10%</td>
+                            <td>制冰机、和面机</td>
+                            <td>价格优势，交货期短</td>
+                        </tr>
+                        <tr>
+                            <td>本地制造商</td>
+                            <td>非洲各国</td>
+                            <td>25%</td>
+                            <td>基础家电设备</td>
+                            <td>了解本地需求，关税优势</td>
+                        </tr>
+                        <tr>
+                            <td>其他国际品牌</td>
+                            <td>多国</td>
+                            <td>20%</td>
+                            <td>各类家电音响</td>
+                            <td>特定领域专业性强</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
         
         <section class="card">
@@ -961,60 +1044,62 @@
             <div class="chart-container">
                 <canvas id="pricingChart"></canvas>
             </div>
-            <table>
-                <thead>
-                    <tr>
-                        <th>产品类型</th>
-                        <th>价格区间(美元)</th>
-                        <th>平均利润率</th>
-                        <th>市场接受度</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>半自动咖啡机</td>
-                        <td>$150 - $300</td>
-                        <td>25-35%</td>
-                        <td>高</td>
-                    </tr>
-                    <tr>
-                        <td>全自动咖啡机</td>
-                        <td>$350 - $800</td>
-                        <td>30-40%</td>
-                        <td>中高</td>
-                    </tr>
-                    <tr>
-                        <td>商用制冰机(50kg/天)</td>
-                        <td>$600 - $1,200</td>
-                        <td>25-35%</td>
-                        <td>高</td>
-                    </tr>
-                    <tr>
-                        <td>和面机(20L)</td>
-                        <td>$200 - $400</td>
-                        <td>20-30%</td>
-                        <td>中高</td>
-                    </tr>
-                    <tr>
-                        <td>面包机</td>
-                        <td>$80 - $200</td>
-                        <td>25-35%</td>
-                        <td>高</td>
-                    </tr>
-                    <tr>
-                        <td>户外音响(500W)</td>
-                        <td>$300 - $700</td>
-                        <td>30-45%</td>
-                        <td>高</td>
-                    </tr>
-                    <tr>
-                        <td>专业音响系统</td>
-                        <td>$1,500 - $5,000</td>
-                        <td>35-50%</td>
-                        <td>中</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>产品类型</th>
+                            <th>价格区间(美元)</th>
+                            <th>平均利润率</th>
+                            <th>市场接受度</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>半自动咖啡机</td>
+                            <td>$150 - $300</td>
+                            <td>25-35%</td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>全自动咖啡机</td>
+                            <td>$350 - $800</td>
+                            <td>30-40%</td>
+                            <td>中高</td>
+                        </tr>
+                        <tr>
+                            <td>商用制冰机(50kg/天)</td>
+                            <td>$600 - $1,200</td>
+                            <td>25-35%</td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>和面机(20L)</td>
+                            <td>$200 - $400</td>
+                            <td>20-30%</td>
+                            <td>中高</td>
+                        </tr>
+                        <tr>
+                            <td>面包机</td>
+                            <td>$80 - $200</td>
+                            <td>25-35%</td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>户外音响(500W)</td>
+                            <td>$300 - $700</td>
+                            <td>30-45%</td>
+                            <td>高</td>
+                        </tr>
+                        <tr>
+                            <td>专业音响系统</td>
+                            <td>$1,500 - $5,000</td>
+                            <td>35-50%</td>
+                            <td>中</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
         
         <section class="card">
@@ -1025,7 +1110,7 @@
                     <li><span class="badge badge-primary">尼日利亚</span> - 非洲最大经济体，人口超过2亿，餐饮业和娱乐业快速发展</li>
                     <li><span class="badge badge-primary">坦桑尼亚</span> - 家电市场最成熟，中产阶级消费能力强</li>
                     <li><span class="badge badge-primary">肯尼亚</span> - 东非经济中心，咖啡文化浓厚，旅游业发达</li>
-                    <li><span class="badge badge-primary">北非</span> - 北非最大市场，面包消费文化深厚</li>
+                    <li><span class="badge badge-primary">北非</span> - 北非面包消费文化深厚，市场比较大</li>
                     <li><span class="badge badge-primary">加纳</span> - 西非稳定经济体，娱乐产业繁荣</li>
                 </ul>
             </div>
